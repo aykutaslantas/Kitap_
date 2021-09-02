@@ -63,7 +63,7 @@
      
 
         <div class="card mb-4">
-        @if(Auth()->check() && Auth()->user()->yetki=="1")
+        @if(Auth()->check())
             <div class="card-header">
             <a href="{{route('books.create')}}" class="btn btn-primary">Kitap Ekle </a>
             </div>
@@ -78,7 +78,7 @@
                                 <th>Kitap Yazarı</th>
                                 <th>Kitap Görseli</th>
                                 <th>Kitap ISBN Numarası</th>
-                                @if(Auth()->check() && Auth()->user()->yetki=="1")
+                                @if(Auth()->check())
                                 <th>Düzenle</th>
                                 <th>Sil</th>
                                 @endif
@@ -94,7 +94,7 @@
                                     <td align="center" >{{$kitap->kitap_yazari}}</td>
                                     <td align="center"><img style="height:200px; width:200px;"  src="{{ asset('/storage/resimler/'.$kitap->kitap_resmi) }}"></td>
                                     <td align="center">{{$kitap->kitap_isbn_no}}</td>
-                                    @if(Auth()->check() && Auth()->user()->yetki=="1")
+                                    @if(Auth()->check())
                                     <td> <a href="{{route('books.edit',['id'=>$kitap->id])}}" style="text-decoration: none;">Düzenle</a>   </td>
                                     <td><a href="{{route('sil',['id'=>$kitap->id])}}" style="text-decoration: none;">Sil</a></td>
                                     @endif

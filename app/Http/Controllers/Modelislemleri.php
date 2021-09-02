@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Kitaplarmodel;
-use App\Models\Yetkimodel;
+use App\Models\User;
 
 class Modelislemleri extends Controller
 {
@@ -14,6 +14,7 @@ class Modelislemleri extends Controller
         
         $validated = $req->validate([
             'resim' => 'required|mimes:jpeg,png,jpg|max:999',
+          
            
         ]);
 
@@ -46,10 +47,10 @@ class Modelislemleri extends Controller
     public function index()
     {
       $books=Kitaplarmodel::all(); 
-      $yetki=Yetkimodel::all();
+      $user=User::all();
     
     
-    return view("kitaplar",["kitap"=>$books,"yetki"=>$yetki]);
+    return view("kitaplar",["kitap"=>$books,"yetki"=>$user]);
     
     }
 

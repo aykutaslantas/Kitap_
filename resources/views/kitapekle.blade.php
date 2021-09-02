@@ -28,23 +28,23 @@
   <div class="mb-1">
    
     <label  class="form-label">Kitap Adı</label>
-    <input name="kitap_adi" type="text" class="form-control" required>
+    <input name="kitap_adi" type="text" class="form-control" required value="{{old('kitap_adi')}}">
     
   </div>
   <div class="mb-1">
     <label class="form-label">Yazar</label>
-    <input name="yazar" type="text" class="form-control" required >
+    <input name="yazar" type="text" class="form-control" required value="{{old('yazar')}}" >
     
   </div>
 
   <div class="mb-1">
     <label  class="form-label">Kapak Görseli</label>
-    <input name="resim" type="file" class="form-control" required  >
+    <input name="resim" type="file" class="form-control" required >
     
   </div>
   <div class="mb-1">
     <label  class="form-label">ISBN Numarası</label>
-    <input type="text" name="isbn_no" class="form-control" required>
+    <input type="text" name="isbn_no" class="form-control" required value="{{old('isbn_no')}}">
     
   </div>
 

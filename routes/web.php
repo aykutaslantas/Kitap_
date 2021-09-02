@@ -17,9 +17,7 @@ use PhpParser\Node\Expr\AssignOp\Mod;
 |
 */
 
-Route::get('books', function () {
-    return view('kitaplar');
-})->name("books.index");
+
 
 Route::get('/', function () {
     return view('home');
@@ -29,20 +27,12 @@ Route::get('books/create', function () {
     return view('kitapekle');
 })->name("books.create");
 
-
-
-
-
-
-Route::get('kitapduzenle', function () {
-    return view('kitapduzenle');
-})->name("kitapduzenle");
-
 Route::post("/kitapekleform",[App\Http\Controllers\Modelislemleri::class,"create"])->name("kitapekleform");
+
 
 Route::get("/books",[Modelislemleri::class,"index"])->name("books.index");
 
-Route::post("/kitapduzenleform/{kitap}",[Modelislemleri::class,"kitapduzenle"])->name("kitapduzenleform");
+Route::put("/kitapduzenleform/{kitap}",[Modelislemleri::class,"kitapduzenle"])->name("kitapduzenleform");
 
 Route::get("/books/edit{id}",[Modelislemleri::class,"edit"])->name("books.edit");
 

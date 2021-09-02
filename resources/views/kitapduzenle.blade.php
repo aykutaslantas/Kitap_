@@ -25,17 +25,18 @@
 
 <form method="POST" action="{{ route('kitapduzenleform', ['kitap' => $kitapduzenle->id]) }}"  enctype="multipart/form-data">
 @csrf
+@method('PUT')
     <div class="genel">
 
   <div class="mb-1">
   <input type="hidden" name="id" value="{{$kitapduzenle->id}}">
     <label  class="form-label">Kitap Adı</label>
-    <input type="text" name="kitap_adi" class="form-control" value="{{$kitapduzenle->kitap_adi}}"  >
+    <input type="text" name="kitap_adi" class="form-control" value="{{old('kitap_adi',$kitapduzenle->kitap_adi)}}"  >
     
   </div>
   <div class="mb-1">
     <label class="form-label">Yazar</label>
-    <input type="text" name="kitap_yazari" class="form-control" value="{{$kitapduzenle->kitap_yazari}}"  >
+    <input type="text" name="kitap_yazari" class="form-control" value="{{old('kitap_yazari',$kitapduzenle->kitap_yazari)}}"  >
     
   </div>
 
@@ -46,7 +47,7 @@
   </div>
   <div class="mb-1">
     <label  class="form-label">ISBN Numarası</label>
-    <input type="text" name="kitap_isbn_no" class="form-control" value="{{$kitapduzenle->kitap_isbn_no}}" >
+    <input type="text" name="kitap_isbn_no" class="form-control" value="{{old('kitap_isbn_no',$kitapduzenle->kitap_isbn_no)}}" >
     
   </div>
 
