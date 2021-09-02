@@ -92,11 +92,11 @@
                           
                                     <td align="center">{{$kitap->kitap_adi}}</td>
                                     <td align="center" >{{$kitap->kitap_yazari}}</td>
-                                    <td align="center"><img style="height:200px; width:200px;"  src="{{ asset('/storage/resimler/'.$kitap->kitap_resmi) }}"></td>
+                                    <td align="center"><img style="height:200px; width:200px;"  src="{{ asset('/storage/images/'.$kitap->kitap_resmi) }}"></td>
                                     <td align="center">{{$kitap->kitap_isbn_no}}</td>
                                     @if(Auth()->check())
                                     <td> <a href="{{route('books.edit',['id'=>$kitap->id])}}" style="text-decoration: none;">Düzenle</a>   </td>
-                                    <td><a href="{{route('sil',['id'=>$kitap->id])}}" style="text-decoration: none;">Sil</a></td>
+                                    <td><a href="{{route('delete',['id'=>$kitap->id])}}" style="text-decoration: none;">Sil</a></td>
                                     @endif
                                   
                                 </tr>

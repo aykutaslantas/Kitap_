@@ -23,31 +23,31 @@
 </div>
 @endif
 
-<form method="POST" action="{{ route('kitapduzenleform', ['kitap' => $kitapduzenle->id]) }}"  enctype="multipart/form-data">
+<form method="POST" action="{{ route('books.update', ['book' => $bookEdit->id]) }}"  enctype="multipart/form-data">
 @csrf
 @method('PUT')
     <div class="genel">
 
   <div class="mb-1">
-  <input type="hidden" name="id" value="{{$kitapduzenle->id}}">
+  <input type="hidden" name="id" value="{{$bookEdit->id}}">
     <label  class="form-label">Kitap Adı</label>
-    <input type="text" name="kitap_adi" class="form-control" value="{{old('kitap_adi',$kitapduzenle->kitap_adi)}}"  >
+    <input type="text" name="name" class="form-control" value="{{old('name',$bookEdit->kitap_adi)}}"  >
     
   </div>
   <div class="mb-1">
     <label class="form-label">Yazar</label>
-    <input type="text" name="kitap_yazari" class="form-control" value="{{old('kitap_yazari',$kitapduzenle->kitap_yazari)}}"  >
+    <input type="text" name="author" class="form-control" value="{{old('author',$bookEdit->kitap_yazari)}}"  >
     
   </div>
 
   <div class="mb-1">
     <label  class="form-label">Kapak Görseli</label>
-    <img style="height:200px; width:200px;"  src="{{ asset('/storage/resimler/'.$kitapduzenle->kitap_resmi) }}">
+    <img style="height:200px; width:200px;"  src="{{ asset('/storage/images/'.$bookEdit->kitap_resmi) }}">
     
   </div>
   <div class="mb-1">
     <label  class="form-label">ISBN Numarası</label>
-    <input type="text" name="kitap_isbn_no" class="form-control" value="{{old('kitap_isbn_no',$kitapduzenle->kitap_isbn_no)}}" >
+    <input type="text" name="no" class="form-control" value="{{old('no',$bookEdit->kitap_isbn_no)}}" >
     
   </div>
 

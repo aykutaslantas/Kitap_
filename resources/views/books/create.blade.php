@@ -21,30 +21,30 @@
             @endforeach
 </div>
 @endif
-<form method="POST" action="{{route('kitapekleform')}}" enctype="multipart/form-data">
+<form method="POST" action="{{route('books.store')}}" enctype="multipart/form-data">
 @csrf
     <div class="genel">
     
   <div class="mb-1">
    
     <label  class="form-label">Kitap Adı</label>
-    <input name="kitap_adi" type="text" class="form-control" required value="{{old('kitap_adi')}}">
+    <input name="name" type="text" class="form-control" required value="{{old('name')}}">
     
   </div>
   <div class="mb-1">
     <label class="form-label">Yazar</label>
-    <input name="yazar" type="text" class="form-control" required value="{{old('yazar')}}" >
+    <input name="author" type="text" class="form-control" required value="{{old('author')}}" >
     
   </div>
 
   <div class="mb-1">
     <label  class="form-label">Kapak Görseli</label>
-    <input name="resim" type="file" class="form-control" required >
+    <input name="image" type="file" class="form-control" required >
     
   </div>
   <div class="mb-1">
     <label  class="form-label">ISBN Numarası</label>
-    <input type="text" name="isbn_no" class="form-control" required value="{{old('isbn_no')}}">
+    <input type="text" name="no" class="form-control" required value="{{old('no')}}">
     
   </div>
 

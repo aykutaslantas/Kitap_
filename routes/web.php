@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Modelislemleri;
-use App\Models\Kitaplarmodel;
+use App\Http\Controllers\BookController;
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\AssignOp\Mod;
@@ -24,19 +24,19 @@ Route::get('/', function () {
 })->name("welcome");
 
 Route::get('books/create', function () {
-    return view('kitapekle');
+    return view('books.create');
 })->name("books.create");
 
-Route::post("/kitapekleform",[App\Http\Controllers\Modelislemleri::class,"create"])->name("kitapekleform");
+Route::post("/books",[App\Http\Controllers\BookController::class,"create"])->name("books.store");
 
 
-Route::get("/books",[Modelislemleri::class,"index"])->name("books.index");
+Route::get("/books",[BookController::class,"index"])->name("books.index");
 
-Route::put("/kitapduzenleform/{kitap}",[Modelislemleri::class,"kitapduzenle"])->name("kitapduzenleform");
+Route::put("/books/{book}",[BookController::class,"store"])->name("books.update");
 
-Route::get("/books/edit{id}",[Modelislemleri::class,"edit"])->name("books.edit");
+Route::get("/books/edit{id}",[BookController::class,"edit"])->name("books.edit");
 
-Route::get("/kitapsil{id}",[Modelislemleri::class,"sil"])->name("sil");
+Route::get("/books/delete{id}",[BookController::class,"delete"])->name("delete");
 /////////////////////////////////////////////////////////////////////
 Auth::routes();
 
