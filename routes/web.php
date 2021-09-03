@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\BookController;
-use App\Models\Book;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Expr\AssignOp\Mod;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,26 +15,23 @@ use PhpParser\Node\Expr\AssignOp\Mod;
 |
 */
 
-
-
 Route::get('/', function () {
     return view('home');
-})->name("welcome");
+})->name('welcome');
 
 Route::get('books/create', function () {
     return view('books.create');
-})->name("books.create");
+})->name('books.create');
 
-Route::post("/books",[App\Http\Controllers\BookController::class,"create"])->name("books.store");
+Route::post('/books', [App\Http\Controllers\BookController::class, 'create'])->name('books.store');
 
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
 
-Route::get("/books",[BookController::class,"index"])->name("books.index");
+Route::put('/books/{book}', [BookController::class, 'store'])->name('books.update');
 
-Route::put("/books/{book}",[BookController::class,"store"])->name("books.update");
+Route::get('/books/{id}/edit', [BookController::class, 'edit'])->name('books.edit');
 
-Route::get("/books/{id}/edit",[BookController::class,"edit"])->name("books.edit");
-
-Route::get("/books/{book}",[BookController::class,"destroy"])->name("books.destroy");
+Route::get('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
 /////////////////////////////////////////////////////////////////////
 Auth::routes();
 
@@ -45,7 +40,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
