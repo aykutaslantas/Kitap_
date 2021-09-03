@@ -31,23 +31,23 @@
   <div class="mb-1">
   <input type="hidden" name="id" value="{{$bookEdit->id}}">
     <label  class="form-label">Kitap Adı</label>
-    <input type="text" name="name" class="form-control" value="{{old('name',$bookEdit->kitap_adi)}}"  >
+    <input type="text" name="name" class="form-control" value="{{old('name',$bookEdit->name)}}"  >
     
   </div>
   <div class="mb-1">
     <label class="form-label">Yazar</label>
-    <input type="text" name="author" class="form-control" value="{{old('author',$bookEdit->kitap_yazari)}}"  >
+    <input type="text" name="author" class="form-control" value="{{old('author',$bookEdit->author)}}"  >
     
   </div>
 
   <div class="mb-1">
     <label  class="form-label">Kapak Görseli</label>
-    <img style="height:200px; width:200px;"  src="{{ asset('/storage/images/'.$bookEdit->kitap_resmi) }}">
+    <img style="height:200px; width:200px;"  src="{{ asset('/storage/images/'.$bookEdit->image) }}">
     
   </div>
   <div class="mb-1">
     <label  class="form-label">ISBN Numarası</label>
-    <input type="text" name="no" class="form-control" value="{{old('no',$bookEdit->kitap_isbn_no)}}" >
+    <input type="text" name="no" class="form-control" value="{{old('no',$bookEdit->no)}}" >
     
   </div>
 

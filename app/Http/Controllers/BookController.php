@@ -30,15 +30,15 @@ class BookController extends Controller
         
         
         Book::create([
-            "kitap_adi"=>$name,
-            "kitap_yazari"=>$author,
-            "kitap_resmi"=>$image,
-            "kitap_isbn_no"=>$no,
+            "name"=>$name,
+            "author"=>$author,
+            "image"=>$image,
+            "no"=>$no,
 
         ]);
         
         $books=Book::all(); 
-        return view('books.index',["kitap"=>$books]);
+        return view('books.index',["book"=>$books]);
     
   
     }
@@ -50,7 +50,7 @@ class BookController extends Controller
       $user=User::all();
     
     
-    return view("books.index",["kitap"=>$books,"yetki"=>$user]);
+    return view("books.index",["book"=>$books,"yetki"=>$user]);
     
     }
 
@@ -76,17 +76,17 @@ class BookController extends Controller
         ]);
         
         $book->update([ 
-        "kitap_yazari"=>$request->author,
-        "kitap_adi"=>$request->name,
-        "kitap_isbn_no"=>$request->no]);
+        "author"=>$request->author,
+        "name"=>$request->name,
+        "no"=>$request->no]);
 
        
            return redirect()->route("books.index");
     }
 
-    public function delete($id)
+    public function destroy(Book $book)
     {
-        Book::where("id",$id)->delete();
+        $book->delete();
         return redirect()->route("books.index");
     }
 

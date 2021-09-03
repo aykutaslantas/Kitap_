@@ -15,10 +15,10 @@ class Kitaplartablo extends Migration
     {
         Schema::create('kitaplartablo', function (Blueprint $table) {
             $table->id();
-            $table->string('kitap_adi',60)->nullable();
-            $table->string('kitap_yazari',50)->nullable();
-            $table->string('kitap_resmi',60)->nullable();
-            $table->string('kitap_isbn_no',30)->nullable();
+            $table->string('name',60)->nullable();
+            $table->string('author',50)->nullable();
+            $table->string('image',60)->nullable();
+            $table->string('no',30)->nullable();
             $table->timestamps();
         });
     }
