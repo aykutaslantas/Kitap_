@@ -29,7 +29,7 @@ Route::get('/books', [BookController::class, 'index'])->name('books.index');
 
 Route::put('/books/{book}', [BookController::class, 'store'])->name('books.update');
 
-Route::get('/books/{id}/edit', [BookController::class, 'edit'])->name('books.edit');
+Route::get('/books/{book}/edit', [BookController::class, 'edit'])->name('books.edit');
 
 Route::get('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
 /////////////////////////////////////////////////////////////////////

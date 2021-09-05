@@ -93,9 +93,9 @@
                                     <td align="center">{{$book->name}}</td>
                                     <td align="center" >{{$book->author}}</td>
                                     <td align="center"><img style="height:200px; width:200px;"  src="{{ asset('/storage/images/'.$book->image) }}"></td>
-                                    <td align="center">{{$book->no}}</td>
+                                    <td align="center">{{$book->isbnNo}}</td>
                                     @if(Auth()->check())
-                                    <td> <a href="{{route('books.edit',['id'=>$book->id])}}" style="text-decoration: none;">Düzenle</a>   </td>
+                                    <td> <a href="{{route('books.edit',['book'=>$book->id])}}" style="text-decoration: none;">Düzenle</a>   </td>
                                     
                                     <td><a href="{{route('books.destroy',['book'=>$book->id])}}" style="text-decoration: none;">Sil</a></td>
                                     @endif

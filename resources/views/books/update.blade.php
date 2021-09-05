@@ -47,9 +47,10 @@
   </div>
   <div class="mb-1">
     <label  class="form-label">ISBN Numarası</label>
-    <input type="text" name="no" class="form-control" value="{{old('no',$bookEdit->no)}}" >
+    <input type="text" name="isbnNo" class="form-control" value="{{old('isbnNo',$bookEdit->isbnNo)}}" >
     
   </div>
+
 
 <br>
   <button type="submit" class="btn btn-primary">Kitap Düzenle</button>

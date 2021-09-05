@@ -44,7 +44,7 @@
   </div>
   <div class="mb-1">
     <label  class="form-label">ISBN Numarası</label>
-    <input type="text" name="no" class="form-control" required value="{{old('no')}}">
+    <input type="text" name="isbnNo" class="form-control" required value="{{old('isbnNo')}}">
     
   </div>
 

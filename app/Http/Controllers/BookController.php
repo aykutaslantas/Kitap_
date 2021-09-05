@@ -4,19 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\User;
+use App\Http\Requests\StoreBookRequest;
 use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
 
 class BookController extends Controller
 {
-    public function create(Request $req)
+    public function create(StoreBookRequest $req)
     {
-        $validated = $req->validate([
-            'image' => 'required|mimes:jpeg,png,jpg|max:999',
-        ]);
+        $validated = $req->validated();
+        $validated = $req->safe()->only(['name', 'author','isbnNo','image','id']);
 
-        $name = $req->name;
-        $author = $req->author;
-        $no = $req->no;
         $destinationPath = 'public/images';
         $image = $req->image->getClientOriginalName();
         $path = $req->file('image')->storeAs($destinationPath, $image);
@@ -24,12 +22,12 @@ class BookController extends Controller
         //getClientOriginalExtension() dosya uzantısı alma
 
         Book::create([
-            'name' => $name,
-            'author' => $author,
+            'name' => $req->name,
+            'author' => $req->author,
             'image' => $image,
-            'no' => $no,
+            'isbnNo' => $req->isbnNo,
         ]);
-
+        
         $books = Book::all();
 
         return view('books.index', ['book' => $books]);
@@ -43,26 +41,21 @@ class BookController extends Controller
         return view('books.index', ['book' => $books, 'yetki' => $user]);
     }
 
-    public function edit($id)
+    public function edit(Book $book)
     {
-        $bookEdit = Book::find($id);
+        $bookEdit = Book::find($book->id);
 
         return view('books.update', ['bookEdit' => $bookEdit]);
     }
 
-    public function store(Book $book, Request $request)
+    public function store(StoreBookRequest $req, Book $book)
     {
-        $validated = $request->validate([
-            'name' => 'max:60',
-            'author' => 'max:60',
-            'no' => 'max:20',
-            'image' => 'max:999',
-        ]);
-
+        $validated = $req->validated();
+        $validated = $req->safe()->only(['name', 'author','isbnNo','image','id']);
         $book->update([
-        'author' => $request->author,
-        'name' => $request->name,
-        'no' => $request->no, ]);
+        'author' => $req->author,
+        'name' => $req->name,
+        'isbnNo' => $req->isbnNo, ]);
 
         return redirect()->route('books.index');
     }
